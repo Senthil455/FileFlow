@@ -1,0 +1,390 @@
+@import 'animation.css';
+@import 'selection.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+/*
+ * Original CSS-only icon set.
+ * These shapes are authored for FileFlow and use no external images,
+ * fonts, SVG files, or third-party icon artwork.
+ */
+.ff-file,
+.ff-folder,
+.ff-folder-tree,
+.ff-logo,
+.ff-save,
+.ff-storage,
+.ff-moon,
+.ff-sun,
+.ff-trash,
+.ff-desktop,
+.ff-mobile,
+.ff-chevron {
+    display: inline-block;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    flex: none;
+    color: currentColor;
+    vertical-align: -0.125em;
+}
+
+/* File */
+.ff-file {
+    width: 0.78em;
+    height: 1em;
+    border: 0.09em solid currentColor;
+    border-radius: 0.08em;
+}
+
+.ff-file::before {
+    content: '';
+    position: absolute;
+    top: -0.09em;
+    right: -0.09em;
+    width: 0.3em;
+    height: 0.3em;
+    border-left: 0.09em solid currentColor;
+    border-bottom: 0.09em solid currentColor;
+    border-radius: 0 0.08em 0 0;
+}
+
+.ff-file::after {
+    content: '';
+    position: absolute;
+    left: 0.14em;
+    right: 0.14em;
+    top: 0.38em;
+    height: 0.08em;
+    background: currentColor;
+    box-shadow:
+        0 0.2em 0 currentColor,
+        0 0.4em 0 currentColor;
+}
+
+/* File with plus */
+.ff-file-plus::after {
+    left: 50%;
+    right: auto;
+    top: 58%;
+    width: 0.38em;
+    height: 0.38em;
+    background:
+        linear-gradient(currentColor, currentColor) center / 0.38em 0.08em no-repeat,
+        linear-gradient(currentColor, currentColor) center / 0.08em 0.38em no-repeat;
+    box-shadow: none;
+    transform: translate(-50%, -50%);
+}
+
+/* File with pencil */
+.ff-file-edit::after {
+    left: 50%;
+    right: auto;
+    top: 60%;
+    width: 0.1em;
+    height: 0.5em;
+    background: currentColor;
+    border-radius: 0.05em;
+    box-shadow: none;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Folder */
+.ff-folder {
+    height: 0.72em;
+    margin-top: 0.18em;
+    border: 0.09em solid currentColor;
+    border-radius: 0.06em;
+}
+
+.ff-folder::before {
+    content: '';
+    position: absolute;
+    left: -0.09em;
+    top: -0.25em;
+    width: 0.44em;
+    height: 0.25em;
+    border: 0.09em solid currentColor;
+    border-bottom: none;
+    border-radius: 0.06em 0.06em 0 0;
+}
+
+.ff-folder-open::after {
+    content: '';
+    position: absolute;
+    left: 0.1em;
+    top: 0.26em;
+    width: 0.6em;
+    height: 0.09em;
+    background: currentColor;
+    border-radius: 0.05em;
+    transform: rotate(-18deg);
+}
+
+.ff-folder-plus::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    width: 0.4em;
+    height: 0.4em;
+    transform: translate(-50%, -50%);
+    background:
+        linear-gradient(currentColor, currentColor) center / 0.4em 0.08em no-repeat,
+        linear-gradient(currentColor, currentColor) center / 0.08em 0.4em no-repeat;
+}
+
+/* Folder tree */
+.ff-folder-tree::before,
+.ff-folder-tree::after {
+    content: '';
+    position: absolute;
+    width: 0.52em;
+    height: 0.4em;
+    border: 0.08em solid currentColor;
+    border-radius: 0.05em;
+}
+
+.ff-folder-tree::before {
+    left: 0;
+    top: 0;
+}
+
+.ff-folder-tree::after {
+    right: 0;
+    bottom: 0;
+    box-shadow: -0.26em -0.22em 0 -0.12em currentColor;
+}
+
+/* Logo */
+.ff-logo {
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.ff-logo::before {
+    content: '';
+    position: absolute;
+    left: 21%;
+    top: 33%;
+    width: 58%;
+    height: 38%;
+    border: 0.07em solid #fff;
+    border-radius: 0.05em;
+}
+
+.ff-logo::after {
+    content: '';
+    position: absolute;
+    left: 21%;
+    top: 26%;
+    width: 25%;
+    height: 13%;
+    border: 0.07em solid #fff;
+    border-bottom: none;
+    border-radius: 0.05em 0.05em 0 0;
+}
+
+/* Save */
+.ff-save {
+    width: 0.9em;
+    height: 0.9em;
+    border: 0.08em solid currentColor;
+    border-radius: 0.06em;
+}
+
+.ff-save::before {
+    content: '';
+    position: absolute;
+    left: 22%;
+    top: -0.08em;
+    width: 42%;
+    height: 30%;
+    border: 0.08em solid currentColor;
+    border-top: none;
+}
+
+.ff-save::after {
+    content: '';
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 0.1em;
+    height: 0.3em;
+    border: 0.08em solid currentColor;
+    border-radius: 0.03em;
+}
+
+/* Storage */
+.ff-storage {
+    width: 0.9em;
+}
+
+.ff-storage::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 0.3em;
+    border: 0.08em solid currentColor;
+    border-radius: 50%;
+}
+
+.ff-storage::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0.15em;
+    bottom: 0;
+    border: 0.08em solid currentColor;
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0.16em 0 -0.08em currentColor,
+        inset 0 0.32em 0 -0.08em currentColor;
+}
+
+/* Theme */
+.ff-moon {
+    border-radius: 50%;
+    box-shadow: inset -0.3em -0.1em 0 0 currentColor;
+}
+
+.ff-sun {
+    width: 0.5em;
+    height: 0.5em;
+    margin: 0.25em;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.ff-sun::before {
+    content: '';
+    position: absolute;
+    inset: -0.2em;
+    border: 0.08em dotted currentColor;
+    border-radius: 50%;
+}
+
+/* Trash */
+.ff-trash {
+    width: 0.72em;
+    height: 0.86em;
+    margin-top: 0.14em;
+    border: 0.08em solid currentColor;
+    border-top: none;
+    border-radius: 0 0 0.08em 0.08em;
+}
+
+.ff-trash::before {
+    content: '';
+    position: absolute;
+    left: -0.14em;
+    right: -0.14em;
+    top: -0.2em;
+    height: 0.08em;
+    background: currentColor;
+    border-radius: 0.04em;
+}
+
+.ff-trash::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -0.32em;
+    width: 0.3em;
+    height: 0.14em;
+    border: 0.08em solid currentColor;
+    border-bottom: none;
+    border-radius: 0.06em 0.06em 0 0;
+    transform: translateX(-50%);
+}
+
+/* Small interface glyphs */
+.ff-chevron {
+    width: 0.45em;
+    height: 0.45em;
+    border-right: 0.09em solid currentColor;
+    border-bottom: 0.09em solid currentColor;
+    transform: rotate(45deg);
+}
+
+.ff-check,
+.ff-warning {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    border: 0.09em solid currentColor;
+    border-radius: 50%;
+    font-size: 0.8em;
+    line-height: 1;
+}
+
+.ff-check::before {
+    content: '\2713';
+}
+
+.ff-warning::before {
+    content: '!';
+    font-weight: 700;
+}
+
+.ff-close::before {
+    content: '\00D7';
+}
+
+.ff-menu::before {
+    content: '\2630';
+}
+
+.ff-close,
+.ff-menu {
+    display: inline-block;
+    line-height: 1;
+}
+
+.ff-desktop {
+    width: 1em;
+    height: 0.72em;
+    border: 0.08em solid currentColor;
+    border-radius: 0.05em;
+}
+
+.ff-desktop::after {
+    content: '';
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    bottom: -0.24em;
+    height: 0.08em;
+    background: currentColor;
+    box-shadow: 0 0.12em 0 currentColor;
+}
+
+.ff-mobile {
+    width: 0.55em;
+    height: 0.95em;
+    border: 0.08em solid currentColor;
+    border-radius: 0.08em;
+}
+
+.ff-mobile::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0.08em;
+    width: 0.12em;
+    height: 0.12em;
+    border-radius: 50%;
+    background: currentColor;
+    transform: translateX(-50%);
+}
