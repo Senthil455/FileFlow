@@ -107,4 +107,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Folder::class);
     }
+
+    /**
+     * Return a local fallback avatar instead of contacting a third-party service.
+     */
+    protected function defaultProfilePhotoUrl(): string
+    {
+        return asset('favicon.ico');
+    }
 }
